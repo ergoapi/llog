@@ -3,18 +3,18 @@ package trace
 import "github.com/sirupsen/logrus"
 
 type TraceIdHook struct {
-	TraceId string
+	TraceID string
 }
 
-func NewTraceIdHook(traceId string) logrus.Hook {
+func NewTraceIdHook(traceID string) logrus.Hook {
 	hook := TraceIdHook{
-		TraceId: traceId,
+		TraceID: traceID,
 	}
 	return &hook
 }
 
 func (hook *TraceIdHook) Fire(entry *logrus.Entry) error {
-	entry.Data["traceId"] = hook.TraceId
+	entry.Data["traceId"] = hook.TraceID
 	return nil
 }
 
